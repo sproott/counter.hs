@@ -1,1 +1,3 @@
-# my-example
+# counter.hs
+
+Basic Brick counter app 
