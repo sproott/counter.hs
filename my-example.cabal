@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 07879a63a6443bce118066a7f4e29cf398c099c309fd45b1168465594a763ce8
+-- hash: cc6d9ca2e614dd6beb6d29f603af938001290c8a4073a56b6384455044fa05f2
 
 name:           my-example
 version:        0.1.0.0
@@ -33,6 +33,7 @@ library
       Paths_my_example
   hs-source-dirs:
       src
+  default-extensions: OverloadedStrings
   build-depends:
       base >=4.7 && <5
     , brick

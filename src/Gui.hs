@@ -1,6 +1,5 @@
 module Gui where
 
-import           Brick.AttrMap              as A
 import qualified Brick.Main                 as M
 import           Brick.Types                (Widget)
 import qualified Brick.Widgets.Border       as B

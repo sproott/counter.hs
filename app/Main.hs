@@ -1,6 +1,3 @@
-{-# LANGUAGE CPP               #-}
-{-# LANGUAGE OverloadedStrings #-}
-
 module Main where
 
 import qualified Brick.AttrMap        as A

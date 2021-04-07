@@ -28,6 +28,7 @@ dependencies:
 
 library:
   source-dirs: src
+  default-extensions: OverloadedStrings
 
 executables:
   my-example-exe:
