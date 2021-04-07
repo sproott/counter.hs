@@ -15,12 +15,12 @@ appEvent :: S.State -> T.BrickEvent () e -> T.EventM () (T.Next S.State)
 appEvent s (T.VtyEvent e) = case e of
     V.EvKey V.KEsc        [] -> M.halt s
     V.EvKey V.KEnter      [] -> M.halt s
-    V.EvKey V.KLeft       [] -> M.continue changeButton
-    V.EvKey V.KRight      [] -> M.continue changeButton
+    V.EvKey V.KLeft       [] -> M.continue $ changeButton True
+    V.EvKey V.KRight      [] -> M.continue $ changeButton False
     V.EvKey (V.KChar ' ') [] -> M.continue handleCounter
     _                        -> M.continue s
   where
-    changeButton  = s & S.isIncrement %~ not
+    changeButton isIncrement  = s & S.isIncrement .~ isIncrement
     handleCounter = s & S.count %~ fn
         where fn = if s ^. S.isIncrement then (+ 1) else subtract 1
 appEvent s _ = M.continue s
