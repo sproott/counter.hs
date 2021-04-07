@@ -9,6 +9,7 @@ import           Brick.Widgets.Core         (hBox, padTopBottom, str, vBox,
                                              withAttr, withBorderStyle, (<+>),
                                              (<=>))
 import qualified Brick.Widgets.Dialog       as D
+import           Core                       (centeredVBox)
 import           Data.List                  (intersperse)
 import           Lens.Micro                 ((&), (.~), (^.))
 import qualified State                      as S
@@ -17,17 +18,15 @@ newtype Button = Button String deriving (Eq)
 
 drawGui :: S.State -> [Widget ()]
 drawGui s =
-  [ C.center
-      $   vBox
-      $   C.hCenter
-      <$> [ str "count: " <+> str (show $ s ^. S.count)
-          , padTopBottom 2 $ hBox $ intersperse
-            padding
-            [drawButton "++" isIncrement, drawButton "--" (not isIncrement)]
-          , str "Arrow keys to choose"
-          , str "Space to press button"
-          , str "Enter or Esc to exit"
-          ]
+  [ C.center $ centeredVBox
+      [ str "count: " <+> str (show $ s ^. S.count)
+      , padTopBottom 2 $ hBox $ intersperse
+        padding
+        [drawButton "++" isIncrement, drawButton "--" (not isIncrement)]
+      , str "Arrow keys to choose"
+      , str "Space to press button"
+      , str "Enter or Esc to exit"
+      ]
   ]
  where
   padding     = str "   "
