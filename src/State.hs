@@ -5,9 +5,9 @@ module State where
 import           Lens.Micro.TH
 
 data State = State
-  { _isIncrement :: Bool,
-    _count       :: Int
-  }
+    { _isIncrement :: Bool,
+        _count     :: Int
+    }
 
 makeLenses ''State
 
